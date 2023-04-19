@@ -2,43 +2,27 @@ import "./datatable.scss";
 
 import axios from "axios";
 import IconButton from "@mui/material/IconButton";
-import {useContext, useEffect, useMemo, useState } from "react";
+import {useEffect, useMemo, useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import {Box} from "@mui/material";
 import { useTheme } from "@emotion/react";
 
-import { ColorModeContext, tokens } from "../../theme";
+import {tokens } from "../../theme";
 import { InputBase } from "@mui/material";
 import {
-  DataGrid,GridToolbar,
+  DataGrid,
   GridToolbarColumnsButton,
   GridToolbarContainer,
-  GridActionsCell,
-  GridActionsCellItem,
-  GridRowModes,
-  gridClasses,
+  
 } from "@mui/x-data-grid";
 
-import {
-  CancelOutlined,
-  DeleteOutline,
-  Delete,
-  Edit,
-  EditOutlined,
-  Save,
-} from "@mui/icons-material";
-import Header from "../Header/Header";
 import SearchBar from '@mkyy/mui-search-bar';
 
 const Datatable = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    const colorMode = useContext(ColorModeContext); 
 
     const [details, setDetails] = useState([]);
-    const [value, setValue] =useState('');
-    const [dataSource,setDataSource]=useState([])
-    const [tableFilter,setTableFilter]=useState([])
     const [searchText, setSearchText] = useState("");
 
     const CustomToolbar = (props) => (
@@ -52,7 +36,7 @@ const Datatable = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/orders")
+      .get("https://caalm.shop/orders")
       .then((response) => {
         setDetails(response.data);
         setDataSource(response.data)
@@ -74,65 +58,16 @@ const Datatable = () => {
     setDetails(filteredRows)
   }
 
-//   const filterData = (e) => {
-//     const searchValue = e.target.value.toLowerCase().trim();
-
-//     if (searchValue) {
-//         const filteredData = dataSource.filter((row) =>
-//             Object.values(row).some((fieldValue) =>
-//                 fieldValue.toString().toLowerCase().includes(searchValue)
-//             )
-//         );
-//         setTableFilter(filteredData);
-//     } else {
-//         setTableFilter([]);
-//     }
-
-//     setValue(searchValue);
-// };
 
 
-
-  // const handleEdit = (id) => {
-  //     setEditId(id)
-  //     console.log(editId)
-  // }
-
-  // const handleRowEditStart = (params, event) => {
-  //     event.defaultMuiPrevented = true;
-  //   };
-
-  //   const handleRowEditStop = (params, event) => {
-  //     event.defaultMuiPrevented = true;
-  //   };
-
-  //   const handleEditClick = (id) => {
-  //     setEditId(id)
-  //     console.log(id)
-  //     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-  //   };
-
-  //   const handleSaveClick = (id) => {
-  //     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-  //   };
-
-  //   const processRowUpdate = (newRow) => {
-  //     const updatedRow = {...newRow, isNew:false};
-  //     setDatas(datas.map((data) => (data.id === newRow.id ? updatedRow:data)))
-  //     return updatedRow
-  //   }
-
-  //   const handleRowModesModelChange = (newRowModesModel) => {
-  //     setRowModesModel(newRowModesModel);
-  //   };
 
   const initialRows = useMemo(() => {
     const uniqueUsers = [];
     details.forEach((order) => {
-        const user_details = JSON.parse(order.user_details); // Parse the user details string
+        const user_details = JSON.parse(order.user_details); 
         if (user_details != null) {
-            const user = user_details[0]; // Assume there is only one user per order for simplicity
-            const isDuplicate = uniqueUsers.some((u) => u.phone_no === user.mob); // Check if user already exists in the unique users array
+            const user = user_details[0];
+            const isDuplicate = uniqueUsers.some((u) => u.phone_no === user.mob); 
             if (!isDuplicate) {
                 uniqueUsers.push({
                     phone_no: user.mob,
@@ -148,21 +83,18 @@ const Datatable = () => {
             }
       }
     });
-    return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 })); // Add unique ID to each row
+    return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 }));
   }, [details]);
 
   const VISIBLE_FIELDS=['phone_no','full_name','registration_num','course_name','email','department_name','hostel_name']
   const columns = useMemo(
     () => [
-        // details.columns.filter((column) => VISIBLE_FIELDS.includes(column.field)),[details.columns],
       { field: "phone_no", headerName: "PHONE NO", width: 150 },
       {
         field: "full_name",
         headerName: "FULL NAME",
         width: 230,
         editable: true,
-        //   headerAlign: 'center',
-        // align: 'center'
         renderCell: (params) => {
           return (
             <div className="cellWithImg">

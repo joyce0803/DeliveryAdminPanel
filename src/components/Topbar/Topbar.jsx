@@ -10,12 +10,10 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 
 const Topbar = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
 
   return (
     <Box display="flex" mr="20px" justifyContent="end" p={2}>
-      {/* Icons */}
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
@@ -37,7 +35,6 @@ const Topbar = () => {
           <PersonOutlinedIcon />
         </IconButton>
       </Box>
-      {/* Search Bar */}
     </Box>
   );
 };

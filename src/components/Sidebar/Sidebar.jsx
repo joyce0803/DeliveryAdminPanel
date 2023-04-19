@@ -4,34 +4,19 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
-import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-
-
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-
-import StoreIcon from '@mui/icons-material/Store';
+import StoreIcon from "@mui/icons-material/Store";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import GradingIcon from '@mui/icons-material/Grading';
-import SettingsIcon from '@mui/icons-material/Settings';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LogoutIcon from '@mui/icons-material/Logout';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import GradingIcon from "@mui/icons-material/Grading";
+import SettingsIcon from "@mui/icons-material/Settings";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
 
-const Item = ({title, to, icon, selected, setSelected}) => {
+const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -43,7 +28,6 @@ const Item = ({title, to, icon, selected, setSelected}) => {
     >
       <Typography>{title}</Typography>
       <Link to={to} />
-
     </MenuItem>
   );
 };
@@ -56,9 +40,7 @@ const Sidebar = () => {
 
   return (
     <Box
-      sx={{ 
-        
-
+      sx={{
         "& .pro-sidebar-inner": {
           background: "#003C3C !important",
         },
@@ -69,21 +51,15 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          // #00AAAA
           color: "#25C87A !important",
         },
         "& .pro-menu-item.active": {
           color: "#25C87A !important",
         },
-      
-        
-        
-        
       }}
     >
-      <ProSidebar collapsed={isCollapsed} >
+      <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* Logo and menu icon */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -103,16 +79,18 @@ const Sidebar = () => {
                 <Typography variant="h3" color={colors.lightgreen[200]}>
                   ADMIN
                 </Typography>
-                <IconButton style={{color:colors.lightgreen[200]}} onClick={() => setIsCollapsed(!isCollapsed)}>
+                <IconButton
+                  style={{ color: colors.lightgreen[200] }}
+                  onClick={() => setIsCollapsed(!isCollapsed)}
+                >
                   <MenuOutlinedIcon />
                 </IconButton>
               </Box>
             )}
           </MenuItem>
 
-          {/* Menu items */}
           <Box mt="40px" paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item 
+            <Item
               title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
@@ -120,99 +98,96 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography 
-              variant='h6'
+            <Typography
+              variant="h6"
               color={colors.grey[400]}
-              sx={{m:"15px 0 15px 20px"}}>Data
+              sx={{ m: "15px 0 15px 20px" }}
+            >
+              Data
             </Typography>
 
-            <Item 
-            title="Users"
-            to="/users"
-            icon={<PeopleOutlinedIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item 
-            title="Products"
-            to="/hjh"
-            icon={<StoreIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
+            <Item
+              title="Users"
+              to="/users"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Products"
+              to="/hjh"
+              icon={<StoreIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
 
-          <Item 
-            title="Orders"
-            to="/orders"
-            icon={<ShoppingCartIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item 
-            title="Delivery"
-            to="/calendar"
-            icon={<LocalShippingIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
+            <Item
+              title="Orders"
+              to="/orders"
+              icon={<ShoppingCartIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Delivery"
+              to="/calendar"
+              icon={<LocalShippingIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
 
+            <Typography
+              variant="h6"
+              color={colors.grey[400]}
+              sx={{ m: "15px 0 15px 20px" }}
+            >
+              Pages
+            </Typography>
 
+            <Item
+              title="Stats"
+              to="/faq"
+              icon={<TimelineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
 
-          <Typography 
-            variant='h6'
-            color={colors.grey[400]}
-            sx={{m:"15px 0 15px 20px"}}>Pages
-          </Typography>
-          
-          <Item 
-            title="Stats"
-            to="/faq"
-            icon={<TimelineOutlinedIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          {/* <Typography 
-            variant='h6'
-            color={colors.grey[400]}
-            sx={{m:"15px 0 5px 20px"}}>Charts
-          </Typography> */}
-          <Item 
-            title="Notifications"
-            to="/bar"
-            icon={<NotificationsActiveIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-         
-          <Item 
-            title="Logs"
-            to="/line"
-            icon={<GradingIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item 
-            title="Settings"
-            to="/geography"
-            icon={<SettingsIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item 
-            title="Profile"
-            to="/geography"
-            icon={<AccountCircleIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item 
-            title="Logout"
-            to="/geography"
-            icon={<LogoutIcon />}
-            selected={selected}
-            setSelected={setSelected}
-          />
-            
+            <Item
+              title="Notifications"
+              to="/bar"
+              icon={<NotificationsActiveIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Logs"
+              to="/line"
+              icon={<GradingIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Settings"
+              to="/geography"
+              icon={<SettingsIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Profile"
+              to="/geography"
+              icon={<AccountCircleIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Logout"
+              to="/geography"
+              icon={<LogoutIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
           </Box>
         </Menu>
       </ProSidebar>
@@ -221,7 +196,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-

@@ -1,14 +1,11 @@
 import "./home.scss"
 
 
-import Sidebar from "../../components/Sidebar/Sidebar"
 import Navbar from "../../components/Navbar/Navbar"
-import Topbar from "../../components/Topbar/Topbar"
 import Widget from "../../components/Widget/Widget"
 import Featured from "../../components/Featured/Featured"
 import Chart from "../../components/Chart/Chart"
 import List from "../../components/Table/Table"
-import Datatable from "../../components/Datatable/Datatable"
 
 const Home = ({userCount}) => {
   console.log(userCount)

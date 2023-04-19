@@ -2,7 +2,6 @@ import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
 
-///color design tokens
 export const tokens=(mode) => ({
     ...(mode==='dark'
       ? {
@@ -56,7 +55,6 @@ export const tokens=(mode) => ({
                 300: "#043030",
                 400: "#015B5D",
                 500: "#032525",
-                // 500:"#4cceac",
                 600: "#063C3C",
                 700: "#004142",
                 800: "#010f0f",
@@ -88,7 +86,6 @@ export const tokens=(mode) => ({
             },
             lightgreen: {
                 100: "#FFFFFF",
-                // 200: "#1e2f24",
                 200:"#d5f7e1",
                 300: "#B3FBCB",
                 400: "#9EF3BB",
@@ -103,10 +100,8 @@ export const tokens=(mode) => ({
                 200: "#080b12",
                 300: "#0c101b",
                 400: "#101624",
-                // 500: "#141b2d",
                 500:"#FFFFFF",
                 600: "#434957",
-                // 600:"FFFFFF",
                 700: "#727681",
                 800: "#a1a4ab",
                 900: "#d0d1d5",
@@ -149,7 +144,6 @@ export const tokens=(mode) => ({
 });
 
 
-//mui theme settings
 
 export const themeSettings=(mode) => {
     const colors=tokens(mode);
@@ -186,7 +180,6 @@ export const themeSettings=(mode) => {
                         light:colors.grey[100]
                     },
                     background:{
-                        // #fcfcfc
                         default:"white",
                     },
                 }  
@@ -224,7 +217,6 @@ export const themeSettings=(mode) => {
 };
 
 
-// context for color mode
 export const ColorModeContext=createContext({
     toggleColorMode:() => {}
 });
