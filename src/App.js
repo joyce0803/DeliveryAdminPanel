@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
-import Single from "./pages/single/Single";
-import New from "./pages/new/New";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import { ColorModeContext, useMode } from "./theme";

@@ -1,9 +1,8 @@
 import "./navbar.scss";
 
 import { IconButton, useTheme } from "@mui/material";
-import { useContext, useState, useEffect } from "react";
+import { useContext} from "react";
 import { ColorModeContext } from "../../theme";
-import axios from "axios";
 
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";

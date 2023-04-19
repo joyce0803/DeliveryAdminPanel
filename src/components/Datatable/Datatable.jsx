@@ -11,19 +11,16 @@ import {tokens } from "../../theme";
 import { InputBase } from "@mui/material";
 import {
   DataGrid,
-  GridToolbarColumnsButton,
-  GridToolbarContainer,
+ 
   
 } from "@mui/x-data-grid";
 
-import SearchBar from '@mkyy/mui-search-bar';
 
 const Datatable = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
     const [details, setDetails] = useState([]);
-    const [searchText, setSearchText] = useState("");
 
  
 

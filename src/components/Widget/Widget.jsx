@@ -50,7 +50,6 @@ const Widget = ({ type }) => {
 
   useEffect(() => {
     setUserCount(rows.length);
-    console.log(userCount);
   }, [rows]);
 
   let data;
