@@ -15,6 +15,7 @@ import GradingIcon from "@mui/icons-material/Grading";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();

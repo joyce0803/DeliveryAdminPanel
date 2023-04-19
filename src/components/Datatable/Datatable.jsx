@@ -25,21 +25,14 @@ const Datatable = () => {
     const [details, setDetails] = useState([]);
     const [searchText, setSearchText] = useState("");
 
-    const CustomToolbar = (props) => (
-        <div>
-          <GridToolbarContainer>
-            <GridToolbarColumnsButton />
-          </GridToolbarContainer>
-          <SearchBar {...props} />
-        </div>
-      );
+ 
 
   useEffect(() => {
     axios
       .get("https://caalm.shop/orders")
       .then((response) => {
         setDetails(response.data);
-        setDataSource(response.data)
+        
       })
 
       .catch((error) => {
@@ -47,16 +40,6 @@ const Datatable = () => {
       });
   }, []);
 
-
-  const requestSearch=(searchValue) => {
-    const searchRegex = new RegExp(`.*${searchValue}.*`, "ig");
-    const filteredRows=initialRows.filter((o) => {
-        return Object.keys(o).some((k) => {
-            return searchRegex.test(0[k].toLowerCase())
-        })
-    })
-    setDetails(filteredRows)
-  }
 
 
 
@@ -86,7 +69,6 @@ const Datatable = () => {
     return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 }));
   }, [details]);
 
-  const VISIBLE_FIELDS=['phone_no','full_name','registration_num','course_name','email','department_name','hostel_name']
   const columns = useMemo(
     () => [
       { field: "phone_no", headerName: "PHONE NO", width: 150 },
@@ -176,10 +158,7 @@ const Datatable = () => {
     ],
     []
   );
-  const cancelSearch = () => {
-    setSearchText("");
-    requestSearch(searchText);
-  };
+  
 
   return (
     <div>
@@ -190,9 +169,7 @@ const Datatable = () => {
          
           type="text"
           width="250px"
-          
-        //   value={value}
-        //   onChange={filterData}
+ 
           ml="20px"
           justifyContent="end"
           backgroundColor={colors.lightgreen[100]}
@@ -220,31 +197,11 @@ const Datatable = () => {
           rows={initialRows}
           editMode="row"
           columns={columns}
-        //   components={{ Toolbar: CustomToolbar }}
-        //   componentsProps={{
-        //     toolbar: {
-        //       value: searchText,
-        //       onChange: (searchVal) => requestSearch(searchVal),
-        //       onCancelSearch: () => cancelSearch()
-        //     }
-        //   }}
-          
-          // onRowEditStart={handleRowEditStart}
-          // onRowEditStop={handleRowEditStop}
-          // onRowModesModelChange={handleRowModesModelChange}
-          // processRowUpdate={processRowUpdate}
-          // rowModesModel={rowModesModel}
+     
           style={{ fontSize: "15px" }}
           rowHeight={80}
           headerHeight={80}
-        //   initialState={{
-        //     filter: {
-        //       filterModel: {
-        //         items: [],
-        //         quickFilterValues: ['quick', 'filter'],
-        //       },
-        //     },
-        //   }}
+     
         />
       </div>
     </div>
