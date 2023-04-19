@@ -1,0 +1,95 @@
+.featured{
+
+    
+    flex: 3;
+    -webkit-box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    -moz-box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    padding:10px;
+    background-color: #0F1E1E;
+
+    .top{
+        display: flex;
+        align-items:center ;
+        justify-content: space-between;
+        color:rgb(244, 255, 251);
+
+        .title{
+            font-size: 23px;
+            font-weight: 500;
+            
+        }
+    }
+
+    .bottom{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        .featuredChart{ 
+           width: 120px;
+           height: 120px; 
+        }
+
+        .title{
+            margin-top: 20px;
+            font-weight: 400;
+            color: antiquewhite;
+            font-size: 19px;
+        }
+
+        .amount{
+            font-size: 32px;
+            color: antiquewhite;
+        }
+
+        .desc{
+            font-weight: 300;
+            font-size: 15.5px;
+            color: gray;
+            text-align: center;
+        }
+
+        .summary{
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            color: antiquewhite;
+            align-items: center;
+            justify-content: space-between;
+
+            .item{
+                text-align: center;
+
+                .itemTitle{
+                    font-size: 16px;
+
+                }
+
+                .itemResult{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+                    font-size: 16px;
+                    // padding:5px;
+                    // margin-right: 5px;
+
+                    &.positive{
+                        color: green;
+                    }
+
+                    &.negative{
+                        color: red;
+                    }
+
+                    .resultAmount{
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

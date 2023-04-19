@@ -1,0 +1,26 @@
+.table{
+
+    background-color: #0F1E1E;
+    margin-top: 20px;
+
+    .tableCell{
+        background-color: #0F1E1E;
+    }
+    .status{
+       padding: 5px; 
+       font-weight: 700;
+       border-radius: 5px;
+
+       &.Approved{
+        color:#067b00;
+        background-color: #CCFFC9;
+       }
+
+       &.Pending{
+        color:#FF7300;
+        background-color: #FBFFC9;
+       }
+
+
+    }
+}

@@ -1,0 +1,49 @@
+.datatable{
+    height: 600px;
+    // padding: 20px;
+    // padding: 20px;
+    margin: 20px;
+    padding-right: 20px;
+    -webkit-box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    -moz-box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    box-shadow: 3px 3px 5px 4px rgba(9,92,92,0.39);
+    background-color: #0F1E1E;
+    
+    
+
+    .cellWithImg{
+       display: flex; 
+       align-items: center;
+
+       .cellImg{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+       }
+    }
+
+    .cellAction{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .editButton{
+            padding: 5px 8px;
+            border-radius: 5px;
+            color: #FF7300;
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #FBFFC9;
+        }
+        .deleteButton{
+            padding: 4px 7px;
+            border-radius: 5px;
+            color: #FF1F19;
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #FFC2B3;
+        }
+    }
+}
