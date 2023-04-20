@@ -12,5 +12,24 @@ body,
 .app{
   display: flex;
   position:relative;
+  
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+  background: #003C3C;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb{
+  background: #0F1E1E;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover{
+  background: #555;
 }
 

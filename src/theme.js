@@ -186,8 +186,8 @@ export const themeSettings=(mode) => {
             ),
         },
         typography:{
-            fontFamily:"Poppins",
-            fontSize:14,
+            fontFamily:"Nunito",
+            fontSize:12,
             h1:{
                 fontFamily:"Poppins",
                 fontSize:40,
@@ -212,6 +212,10 @@ export const themeSettings=(mode) => {
                 fontFamily:"Poppins",
                 fontSize:14,
             },
+            h7:{
+                fontFamily:"Poppins",
+                fontSize:13
+            }
         },
     };
 };

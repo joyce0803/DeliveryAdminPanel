@@ -49,7 +49,7 @@ const Sidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
+          padding: "5px 25px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
           color: "#25C87A !important",
@@ -57,15 +57,16 @@ const Sidebar = () => {
         "& .pro-menu-item.active": {
           color: "#25C87A !important",
         },
+        
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebar collapsed={isCollapsed} width="250px">
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "10px 10px 20px 0",
               color: colors.lightgreen[200],
             }}
           >
@@ -75,9 +76,9 @@ const Sidebar = () => {
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
-                ml="50px"
+                ml="40px"
               >
-                <Typography variant="h3" color={colors.lightgreen[200]}>
+                <Typography variant="h4" color={colors.lightgreen[200]}>
                   ADMIN
                 </Typography>
                 <IconButton
@@ -90,8 +91,9 @@ const Sidebar = () => {
             )}
           </MenuItem>
 
-          <Box mt="40px" paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box mt="23px" paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
+              // mt="20px"
               title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
@@ -100,9 +102,9 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h6"
+              variant="h7"
               color={colors.grey[400]}
-              sx={{ m: "15px 0 15px 20px" }}
+              sx={{ m: "19px 0 8px 20px" }}
             >
               Data
             </Typography>
@@ -138,9 +140,9 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h6"
+              variant="h7"
               color={colors.grey[400]}
-              sx={{ m: "15px 0 15px 20px" }}
+              sx={{ m: "5px 0 8px 20px" }}
             >
               Pages
             </Typography>
@@ -161,13 +163,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Item
-              title="Logs"
-              to="/line"
-              icon={<GradingIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            
             <Item
               title="Settings"
               to="/geography"

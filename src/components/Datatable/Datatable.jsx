@@ -68,11 +68,11 @@ const Datatable = () => {
 
   const columns = useMemo(
     () => [
-      { field: "phone_no", headerName: "PHONE NO", width: 150 },
+      { field: "phone_no", headerName: "PHONE NO", width: 140 },
       {
         field: "full_name",
         headerName: "FULL NAME",
-        width: 230,
+        width: 180,
         editable: true,
         renderCell: (params) => {
           return (
@@ -86,7 +86,7 @@ const Datatable = () => {
       {
         field: "registration_num",
         headerName: "REGISTRATION NUMBER",
-        width: 250,
+        width: 200,
         editable: true,
         headerAlign: "center",
         align: "center",
@@ -94,18 +94,17 @@ const Datatable = () => {
       {
         field: "email",
         headerName: "EMAIL",
-        width: 250,
+        width: 220,
         editable: true,
         headerAlign: "center",
-        align: "auto",
+        align: "center",
       },
       {
         field: "course_name",
         headerName: "COURSE NAME",
         width: 200,
         editable: true,
-        align: "center",
-        eaderAlign: "center",
+      
       },
       {
         field: "department_name",
@@ -116,7 +115,7 @@ const Datatable = () => {
       {
         field: "hostel_name",
         headerName: "HOSTEL NAME",
-        width: 200,
+        width: 150,
         editable: true,
       },
       {
@@ -165,7 +164,7 @@ const Datatable = () => {
           mb="10px"
          
           type="text"
-          width="250px"
+          width="200px"
  
           ml="20px"
           justifyContent="end"
@@ -181,23 +180,23 @@ const Datatable = () => {
           </IconButton>
         </Box>
       </div>
-      <div className="datatable" style={{ height: 580, width: "100%" }}>
+      <div className="datatable" style={{ height: 505, width: "100%" }}>
         <DataGrid
 
           sx={{
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "black",
               color: "white",
-              fontSize: 16,
+              fontSize: 12,
             },
           }}
           rows={initialRows}
           editMode="row"
           columns={columns}
      
-          style={{ fontSize: "15px" }}
-          rowHeight={80}
-          headerHeight={80}
+          style={{ fontSize: "12px" }}
+          rowHeight={50}
+          headerHeight={50}
      
         />
       </div>

@@ -91,6 +91,7 @@ function CollapsibleTable() {
               display: "flex",
               flexDirection: "row",
               textTransform: "uppercase",
+              "& > *": { borderBottom: "unset",height:"20px" }
             }}
           >
             <InputBase
@@ -111,6 +112,7 @@ function CollapsibleTable() {
       const color = textColors[row.order_status];
       return (
         <TableCell
+        
           sx={{
             borderRadius: 80,
             width: 130,
@@ -119,7 +121,8 @@ function CollapsibleTable() {
             backgroundColor,
             color: color,
             fontWeight: 500,
-            fontSize: "16px",
+            fontSize: "13px",
+            "& > *": { borderBottom: "unset",height:"20px" }
           }}
         >
           {row.order_status}
@@ -182,43 +185,43 @@ function CollapsibleTable() {
       <div className="table">
         <TableContainer
           component={Paper}
-          sx={{ height: 580, backgroundColor: "#0F1E1E" }}
+          sx={{ height: 540, backgroundColor: "#0F1E1E" }}
         >
           <Table
             className="tableContainer"
             aria-label="collapsible table"
-            sx={{ backgroundColor: "#0F1E1E", border: "1px solid gray" }}
+            sx={{ backgroundColor: "#0F1E1E", border: "1px solid gray",tableLayout: "auto" }}
           >
             <TableHead sx={{ position: "sticky", top: 0, zIndex: 999 }}>
-              <TableRow sx={{ backgroundColor: "black" }}>
+              <TableRow  sx={{ backgroundColor: "black", "& .MuiTableRow-root":{height:"10px"}}}>
                 <TableCell />
-                <TableCell sx={{ fontSize: "17px", width: 200 }}>
+                <TableCell  sx={{ fontSize: "13px", width: 200, padding:"5px"}}>
                   PHONE NUMBER
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px", width: 300 }}>
+                <TableCell sx={{ fontSize: "13px", width: 300, paddingLeft:"30px" }}>
                   NAME
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px", width: 200 }}>
+                <TableCell sx={{ fontSize: "13px", width: 200 }}>
                   ORDER PIN
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px" }}>ORDER STATUS</TableCell>
-                <TableCell sx={{ fontSize: "17px", width: 200 }}>
+                <TableCell sx={{ fontSize: "13px" ,height:20}}>ORDER STATUS</TableCell>
+                <TableCell sx={{ fontSize: "13px", width: 200 }}>
                   HOSTEL NAME
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px", width: 250 }}>
+                <TableCell sx={{ fontSize: "13px", width: 250 }}>
                   REST NAME
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px", width: 150 }}>
+                <TableCell sx={{ fontSize: "13px", width: 150 }}>
                   TOTAL BILL
                 </TableCell>
-                <TableCell sx={{ fontSize: "17px" }}>ORDERED AT </TableCell>
+                <TableCell sx={{ fontSize: "13px" }}>ORDERED AT </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <Fragment key={row._id}>
-                  <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-                    <TableCell>
+                  <TableRow sx={{ "& > *": { borderBottom: "unset",height:"20px" }}}>
+                    <TableCell sx={{height:"20px"}}>
                       <IconButton
                         aria-label="expand row"
                         size="small"
@@ -232,54 +235,54 @@ function CollapsibleTable() {
                       </IconButton>
                     </TableCell>
                     <TableCell
-                      sx={{ fontSize: "15px" }}
+                      sx={{ fontSize: "12.5px" }}
                       component="th"
                       scope="row"
                     >
                       {row.phone_no}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px" }}>
+                    <TableCell sx={{ fontSize: "12.5px",paddingLeft:"30px" }}>
                       {row.user_fullName}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px" }}>
+                    <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.order_pin}
                     </TableCell>
                     <TableCell
                       sx={{
-                        fontSize: "15px",
-                        display: "flex",
-                        flexDirection: "row",
+                        fontSize: "12.5px",
+                        // display: "flex",
+                        // flexDirection: "row",
                       }}
                     >
                       {renderOrderStatusCell(row, row.id)}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px" }}>
+                    <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.user_hostelName}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px" }}>
+                    <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.rest_name}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px" }}>
+                    <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.total_price}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "15px", width: 150 }}>
+                    <TableCell sx={{ fontSize: "12.5px", width: 150 }}>
                       {formatDate(row.timestamp)}
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell
                       style={{ paddingBottom: 0, paddingTop: 0 }}
-                      colSpan={6}
+                      colSpan={4}
                     >
                       <Collapse
                         in={openRows[row.id]}
                         timeout="auto"
                         unmountOnExit
                       >
-                        <Box sx={{ margin: 3 }}>
+                        <Box sx={{ margin: 2 }}>
                           <Typography
-                            variant="h4"
-                            sx={{ marginBottom: 3 }}
+                            variant="h6"
+                            sx={{ marginBottom: 2 }}
                             gutterBottom
                             component="div"
                           >
@@ -290,7 +293,7 @@ function CollapsibleTable() {
                               <TableRow>
                                 <TableCell
                                   sx={{
-                                    fontSize: "16px",
+                                    fontSize: "13px",
                                     backgroundColor: "black",
                                   }}
                                 >
@@ -298,7 +301,7 @@ function CollapsibleTable() {
                                 </TableCell>
                                 <TableCell
                                   sx={{
-                                    fontSize: "16px",
+                                    fontSize: "13px",
                                     backgroundColor: "black",
                                   }}
                                 >
@@ -306,7 +309,7 @@ function CollapsibleTable() {
                                 </TableCell>
                                 <TableCell
                                   sx={{
-                                    fontSize: "16px",
+                                    fontSize: "13px",
                                     backgroundColor: "black",
                                   }}
                                 >
@@ -319,8 +322,8 @@ function CollapsibleTable() {
                                 <TableRow key={index}>
                                   <TableCell
                                     sx={{
-                                      fontSize: "15px",
-                                      height: 50,
+                                      fontSize: "12px",
+                                      height: 40,
                                       backgroundColor: "#003C3C",
                                     }}
                                     component="th"
@@ -330,7 +333,7 @@ function CollapsibleTable() {
                                   </TableCell>
                                   <TableCell
                                     sx={{
-                                      fontSize: "15px",
+                                      fontSize: "12px",
                                       backgroundColor: "#003C3C",
                                     }}
                                   >
@@ -338,7 +341,7 @@ function CollapsibleTable() {
                                   </TableCell>
                                   <TableCell
                                     sx={{
-                                      fontSize: "15px",
+                                      fontSize: "12px",
                                       backgroundColor: "#003C3C",
                                     }}
                                   >
