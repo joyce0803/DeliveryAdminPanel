@@ -56,6 +56,9 @@ const Widget = ({ type }) => {
 
   const orders = useMemo(() => {
     const uniqueUsers = [];
+
+    const orderDetails = [];
+    let totalEarnings = 0;
     details.forEach((order) => {
       const user_details = JSON.parse(order.user_details);
       if (user_details != null) {
@@ -72,8 +75,12 @@ const Widget = ({ type }) => {
             insta_id: user.instaId,
             img: user.profilePic,
           });
-    
+          orderDetails.push({
+            total_price: order.total_price,
+          });
+          totalEarnings +=order.total_price
       }
+      setEarningsCount(totalEarnings);
     });
     return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 }));
   }, [details]);
@@ -82,22 +89,18 @@ const Widget = ({ type }) => {
     setOrderCount(orders.length);
   }, [orders]);
 
-  const earnings = useMemo(() => {
-    const orderDetails = [];
-    let totalEarnings = 0;
-    details.forEach((order) => {
-      const orderDetailsArray = JSON.parse(order.order_details);
-      if (orderDetailsArray !== null) {
-        const userDetailsArray = JSON.parse(order.user_details);
-        orderDetails.push({
-          total_price: order.total_price,
-        });
-        totalEarnings +=order.total_price
-      }
-    });
-    setEarningsCount(totalEarnings);
-    return orderDetails.map((user, index) => ({ ...user, id: index + 1 }));
-  }, [details]);
+  // const earnings = useMemo(() => {
+    
+  //   details.forEach((order) => {
+  //     const orderDetailsArray = JSON.parse(order.order_details);
+  //     if (orderDetailsArray !== null) {
+        
+        
+  //     }
+  //   });
+    
+  //   return orderDetails.map((user, index) => ({ ...user, id: index + 1 }));
+  // }, [details]);
 
   let data;
 

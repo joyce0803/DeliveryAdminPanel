@@ -6,7 +6,6 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 
 import { Box } from "@mui/material";
 
-import { InputBase } from "@mui/material";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -39,11 +38,11 @@ function CollapsibleTable() {
     placed: "#FF1F19",
   };
 
-  const statusOptions=[
-    'placed',
-    'confirmed',
-    'delivered'
-  ]
+  // const statusOptions=[
+  //   'placed',
+  //   'confirmed',
+  //   'delivered'
+  // ]
 
   useEffect(() => {
     axios
