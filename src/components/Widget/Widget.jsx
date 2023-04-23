@@ -11,6 +11,8 @@ import { useEffect, useMemo, useState } from "react";
 const Widget = ({ type }) => {
   const [details, setDetails] = useState([]);
   const [userCount, setUserCount] = useState(0);
+  const [orderCount, setOrderCount] = useState(0);
+  const [earningsCount, setEarningsCount] = useState(0)
 
   useEffect(() => {
     axios
@@ -52,6 +54,51 @@ const Widget = ({ type }) => {
     setUserCount(rows.length);
   }, [rows]);
 
+  const orders = useMemo(() => {
+    const uniqueUsers = [];
+    details.forEach((order) => {
+      const user_details = JSON.parse(order.user_details);
+      if (user_details != null) {
+        const user = user_details[0];
+        
+          uniqueUsers.push({
+            phone_no: user.mob,
+            full_name: user.fullName,
+            registration_num: user.registrationNum,
+            email: user.email,
+            course_name: user.courseName,
+            department_name: user.departmentName,
+            hostel_name: user.hostelName,
+            insta_id: user.instaId,
+            img: user.profilePic,
+          });
+    
+      }
+    });
+    return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 }));
+  }, [details]);
+
+  useEffect(() => {
+    setOrderCount(orders.length);
+  }, [orders]);
+
+  const earnings = useMemo(() => {
+    const orderDetails = [];
+    let totalEarnings = 0;
+    details.forEach((order) => {
+      const orderDetailsArray = JSON.parse(order.order_details);
+      if (orderDetailsArray !== null) {
+        const userDetailsArray = JSON.parse(order.user_details);
+        orderDetails.push({
+          total_price: order.total_price,
+        });
+        totalEarnings +=order.total_price
+      }
+    });
+    setEarningsCount(totalEarnings);
+    return orderDetails.map((user, index) => ({ ...user, id: index + 1 }));
+  }, [details]);
+
   let data;
 
   let amount;
@@ -84,7 +131,8 @@ const Widget = ({ type }) => {
           />
         ),
       };
-      console.log(userCount);
+      amount = orderCount;
+      console.log("order count",orderCount)
       break;
     case "earning":
       data = {
@@ -98,6 +146,8 @@ const Widget = ({ type }) => {
           />
         ),
       };
+      amount = earningsCount;
+      console.log("earnings", earningsCount)
       break;
     case "balance":
       data = {

@@ -20,6 +20,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Collapse from "@mui/material/Collapse";
 import { Edit, Cancel, Save } from "@mui/icons-material";
+import Select from "@mui/material/Select";
 
 function CollapsibleTable() {
   const [details, setDetails] = useState([]);
@@ -37,6 +38,12 @@ function CollapsibleTable() {
     confirmed: "#FF9D02",
     placed: "#FF1F19",
   };
+
+  const statusOptions=[
+    'placed',
+    'confirmed',
+    'delivered'
+  ]
 
   useEffect(() => {
     axios
@@ -94,10 +101,31 @@ function CollapsibleTable() {
               "& > *": { borderBottom: "unset",height:"20px" }
             }}
           >
-            <InputBase
+            <Box sx={{
+            width: 120,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}>
+            {/* <Typography variant="body1">
+               {newStatus}
+            </Typography> */}
+            <Select
               value={newStatus}
               onChange={(e) => setNewStatus(e.target.value)}
-            />
+              native
+            >
+              <option value="placed">Placed</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="delivered">Delivered</option>
+            </Select>
+          </Box>
+            
+            {/* <InputBase
+              value={newStatus}
+              onChange={(e) => setNewStatus(e.target.value)}
+            /> */}
             <IconButton size="small" onClick={() => handleSaveClick(row._id)}>
               <Save />
             </IconButton>
@@ -122,6 +150,7 @@ function CollapsibleTable() {
             color: color,
             fontWeight: 500,
             fontSize: "13px",
+            textTransform:"capitalize",
             "& > *": { borderBottom: "unset",height:"20px" }
           }}
         >

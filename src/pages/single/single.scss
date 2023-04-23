@@ -4,11 +4,31 @@
     padding: 20px;
     width: 1200px;
     display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
 
   .MuiTableRow-root table{
     height: "40px"
+  }
+
+  select {
+    color: inherit;
+    padding: 0px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: inherit;
+    font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    text-align-last: center;
+    // text-transform: uppercase;
+    cursor: pointer;
   }
 
 }
