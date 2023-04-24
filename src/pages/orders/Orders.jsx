@@ -2,7 +2,6 @@ import CollapsibleTable from "../single/Single";
 import Navbar from '../../components/Navbar/Navbar';
 import './orders.scss';
 
-import React from 'react'
 
 const Orders = () => {
     return (

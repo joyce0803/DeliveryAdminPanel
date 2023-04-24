@@ -6,13 +6,15 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Orders from "./pages/orders/Orders";
+import Restaurents from "./pages/restaurents/Restaurents";
+import Menu from "./pages/Menu/Menu";
 
 function App() {
   const [theme, colorMode] = useMode();
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        <CssBaseline /> 
 
         <div className="app" >
 
@@ -21,7 +23,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/users" element={<List />} />
-
+              <Route path="/restaurents" element={<Restaurents />} />
+              <Route path="/menus/:name/:id" element={<Menu />} />
               <Route path="/orders" element={<Orders />} />
             </Routes>
           </main>

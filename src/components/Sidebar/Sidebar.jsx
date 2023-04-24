@@ -57,9 +57,10 @@ const Sidebar = () => {
           color: "#25C87A !important",
         },
         
+        
       }}
     >
-      <ProSidebar collapsed={isCollapsed} width="250px">
+      <ProSidebar collapsed={isCollapsed} width="250px" >
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -116,8 +117,8 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Products"
-              to="/hjh"
+              title="Restaurents"
+              to="/restaurents"
               icon={<StoreIcon />}
               selected={selected}
               setSelected={setSelected}
