@@ -32,15 +32,15 @@ const RestaurentsCards = () => {
     <div>
       <Grid
         container
-        spacing={4}
+        
         className="cards"
         justifyContent="space-between"
         ml="10px"
         mt="20px"
       >  
         {details.map((detail, index) => (
-          <Grid item xs={12} sm={6} md={3} key={detail._id}>
-            <Card variant="outlined" className="card" sx={{ maxWidth: 250, position: "relative" ,':hover':{
+          <Grid item xs={12} sm={6} md={2} key={detail._id}>
+            <Card variant="outlined" className="card" sx={{ maxWidth: 200,height:200, position: "relative" ,':hover':{
                   backgroundColor:"white"
                 } }}>
                 
