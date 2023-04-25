@@ -30,12 +30,14 @@ function CollapsibleTable() {
   const statusColors = {
     delivered: "#C0FF86",
     confirmed: "#FCFF8F",
-    placed: "#FFC2B3",
+    placed: "#EBA1F9",
+    canceled:"#FFC2B3"
   };
   const textColors = {
     delivered: "#03AB07",
     confirmed: "#FF9D02",
-    placed: "#FF1F19",
+    placed: "#9601B1",
+    canceled:"#FF1F19"
   };
 
   // const statusOptions=[
@@ -118,6 +120,7 @@ function CollapsibleTable() {
               <option value="placed">Placed</option>
               <option value="confirmed">Confirmed</option>
               <option value="delivered">Delivered</option>
+              <option value="canceled">Canceled</option>
             </Select>
           </Box>
             
