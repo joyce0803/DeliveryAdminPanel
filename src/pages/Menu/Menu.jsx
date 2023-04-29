@@ -27,8 +27,9 @@ const Menu = () => {
         setMenuItems(items);
         console.log(items);
         console.log(id);
+        
 
-        const newGroupedMenuItems = items.reduce((groupedItems, item) => {
+        const newGroupedMenuItems = menuItems.reduce((groupedItems, item) => {
           const { dish_type } = item;
           if (!groupedItems[dish_type]) {
             groupedItems[dish_type] = [item];
@@ -44,7 +45,7 @@ const Menu = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id,menuItems]);
 
   return (
     <div className="listMenu">
@@ -107,7 +108,7 @@ const Menu = () => {
               </Typography>
               <Grid container spacing={1} sx={{padding:"10px"}}>
                 {groupedMenuItems[type].map((item) => (
-                  <Card variant="outlined" sx={{width:250,height:80,backgroundColor:"#B5FFDD", color:"black", margin:"5px", fontWeight:"600",":hover": {
+                  <Card variant="outlined" sx={{width:280,height:80,backgroundColor:"#B5FFDD", color:"black", margin:"5px", fontWeight:"600",":hover": {
                     backgroundColor: "#003C3C",
                     color:"white",
                     border:"1px solid white"
