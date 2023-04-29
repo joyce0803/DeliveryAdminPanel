@@ -34,7 +34,7 @@ const RestaurentsCards = () => {
         container
         
         className="cards"
-        justifyContent="space-between"
+        
         ml="10px"
         mt="20px"
       >  
@@ -59,9 +59,10 @@ const RestaurentsCards = () => {
                       bottom: 0,
                       left: 0,
                       width: "100%",
+                      height:"30px",
                       bgcolor: "rgba(0, 0, 0, 0.70)",
                       color: "white",
-                      padding: "10px",
+                      padding: "5px",
                       alignItems:'center',
                       textAlign:'center',
                     }}
