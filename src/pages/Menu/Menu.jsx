@@ -117,7 +117,7 @@ const Menu = () => {
                       {item.dish_name}
                       <div>
                   <Typography
-                    variant="h6"
+                    variant="h6" 
                     sx={{ paddingTop: "15px", color: "#0F8E04", fontWeight:600 }}
                   >
                     ₹ {item.dish_price}

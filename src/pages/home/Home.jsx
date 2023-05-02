@@ -14,7 +14,7 @@ const Home = ({userCount}) => {
       
       <div className="homeContainer">
         <Navbar />
-        <div className="widgets">
+        <div className="widgets"> 
           
           <Widget type="user" userCount={userCount} />
           <Widget type="order"/>
