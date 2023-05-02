@@ -34,7 +34,7 @@ const Widget = ({ type }) => {
         const isDuplicate = uniqueUsers.some((u) => u.phone_no === user.mob);
         if (!isDuplicate) {
           uniqueUsers.push({
-            phone_no: user.mob,
+            phone_no: user.mob, 
             full_name: user.fullName,
             registration_num: user.registrationNum,
             email: user.email,
