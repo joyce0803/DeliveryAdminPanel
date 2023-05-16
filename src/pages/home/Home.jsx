@@ -10,7 +10,7 @@ import List from "../../components/Table/Table"
 const Home = ({userCount}) => {
   console.log(userCount)
   return (
-    <div className="home">
+    <div className="home" style={{overflowY: 'scroll', height:'100vh'}}>
       
       <div className="homeContainer">
         <Navbar />

@@ -185,7 +185,7 @@ function CollapsibleTable() {
       if (orderDetailsArray !== null) {
         const userDetailsArray = JSON.parse(order.user_details);
         const userDetails = userDetailsArray[0];
-        const orderD = orderDetailsArray;
+        const orderD = orderDetailsArray[0];
         orderDetails.push({
           _id: order._id,
           phone_no: order.phone_no,

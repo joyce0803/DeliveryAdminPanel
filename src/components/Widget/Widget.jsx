@@ -78,7 +78,13 @@ const Widget = ({ type }) => {
           orderDetails.push({
             total_price: order.total_price,
           });
-          totalEarnings +=order.total_price
+          if(order.order_status==='delivered'){
+            totalEarnings +=order.total_price
+          }
+          if(order.order_status==='canceled'){
+            totalEarnings -=order.total_price
+          }
+          
       }
       setEarningsCount(totalEarnings);
     });
