@@ -239,9 +239,7 @@ function CollapsibleTable() {
                 <TableCell sx={{ fontSize: "13px", width: 200 }}>
                   HOSTEL NAME
                 </TableCell>
-                <TableCell sx={{ fontSize: "13px", width: 250 }}>
-                  REST NAME
-                </TableCell>
+                
                 <TableCell sx={{ fontSize: "13px", width: 150 }}>
                   TOTAL BILL
                 </TableCell>
@@ -290,9 +288,7 @@ function CollapsibleTable() {
                     <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.user_hostelName}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "12.5px" }}>
-                      {row.rest_name}
-                    </TableCell>
+                    
                     <TableCell sx={{ fontSize: "12.5px" }}>
                       {row.total_price}
                     </TableCell>
@@ -303,7 +299,7 @@ function CollapsibleTable() {
                   <TableRow>
                     <TableCell
                       style={{ paddingBottom: 0, paddingTop: 0 }}
-                      colSpan={4}
+                      colSpan={5}
                     >
                       <Collapse
                         in={openRows[row.id]}
@@ -346,6 +342,14 @@ function CollapsibleTable() {
                                 >
                                   ITEM PRICE
                                 </TableCell>
+                                <TableCell
+                                  sx={{
+                                    fontSize: "13px",
+                                    backgroundColor: "black",
+                                  }}
+                                >
+                                  RESTAURENT NAME
+                                </TableCell>
                               </TableRow>
                             </TableHead>
                             <TableBody>
@@ -377,6 +381,14 @@ function CollapsibleTable() {
                                     }}
                                   >
                                     {item.price}
+                                  </TableCell>
+                                  <TableCell
+                                    sx={{
+                                      fontSize:"12px",
+                                      backgroundColor:"#003C3C"
+                                    }}
+                                  >
+                                    {item.rest_name}
                                   </TableCell>
                                 </TableRow>
                               ))}
