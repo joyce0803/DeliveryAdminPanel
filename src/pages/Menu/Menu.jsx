@@ -12,7 +12,7 @@ import {
   Typography,
   Grid,
 } from "@mui/material";
-import { Edit, Cancel, Save } from "@mui/icons-material";
+import { Edit} from "@mui/icons-material";
 
 const Menu = () => {
   const { id } = useParams();
