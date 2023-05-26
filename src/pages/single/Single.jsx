@@ -136,7 +136,7 @@ function CollapsibleTable() {
     };
     console.log('updated itm',updatedItem)
     axios
-      .patch(`http://localhost:3000/orders/${id}/${item._id}`, {
+      .patch(`https://caalm.shop/orders/${id}/${item._id}`, {
         updatedItem:updatedItem,
         
       })
