@@ -56,40 +56,48 @@ const Widget = ({ type }) => {
 
   const orders = useMemo(() => {
     const uniqueUsers = [];
-
     const orderDetails = [];
     let totalEarnings = 0;
+  
     details.forEach((order) => {
       const user_details = JSON.parse(order.user_details);
       if (user_details != null) {
         const user = user_details[0];
-        
-          uniqueUsers.push({
-            phone_no: user.mob,
-            full_name: user.fullName,
-            registration_num: user.registrationNum,
-            email: user.email,
-            course_name: user.courseName,
-            department_name: user.departmentName,
-            hostel_name: user.hostelName,
-            insta_id: user.instaId,
-            img: user.profilePic,
-          });
+  
+        uniqueUsers.push({
+          phone_no: user.mob,
+          full_name: user.fullName,
+          registration_num: user.registrationNum,
+          email: user.email,
+          course_name: user.courseName,
+          department_name: user.departmentName,
+          hostel_name: user.hostelName,
+          insta_id: user.instaId,
+          img: user.profilePic,
+        });
+  
+        if (order.order_status === "delivered") {
           orderDetails.push({
             total_price: order.total_price,
           });
-          if(order.order_status==='delivered'){
-            totalEarnings +=order.total_price
-          }
-          if(order.order_status==='canceled'){
-            totalEarnings -=order.total_price
-          }
           
+        }
+        totalEarnings += order.total_price;
+        if (order.order_status === "canceled") {
+          orderDetails.push({
+            total_price: order.total_price,
+          });
+          totalEarnings -= order.total_price;
+        }
       }
-      setEarningsCount(totalEarnings);
     });
+  
+    setEarningsCount(totalEarnings);
+  
     return uniqueUsers.map((user, index) => ({ ...user, id: index + 1 }));
   }, [details]);
+  
+  
 
   useEffect(() => {
     setOrderCount(orders.length);
